@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 export function AuthForm() {
   const [loading, setLoading] = useState(false);
@@ -21,26 +20,15 @@ export function AuthForm() {
     const fullName = formData.get("fullName") as string;
 
     try {
-      const { error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: fullName,
-          },
-        },
-      });
-
-      if (error) throw error;
-
+      // Simulate successful signup
       toast({
         title: "Account created!",
-        description: "Please check your email to verify your account.",
+        description: "Welcome to BusinessConnect! (Demo mode - no actual account created)",
       });
     } catch (error: any) {
       toast({
         title: "Error",
-        description: error.message,
+        description: "Something went wrong. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -57,21 +45,15 @@ export function AuthForm() {
     const password = formData.get("password") as string;
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (error) throw error;
-
+      // Simulate successful signin
       toast({
         title: "Welcome back!",
-        description: "You have been signed in successfully.",
+        description: "You have been signed in successfully! (Demo mode)",
       });
     } catch (error: any) {
       toast({
         title: "Error",
-        description: error.message,
+        description: "Invalid credentials. Please try again.",
         variant: "destructive",
       });
     } finally {
