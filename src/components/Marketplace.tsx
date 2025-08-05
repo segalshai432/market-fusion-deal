@@ -99,8 +99,8 @@ const Marketplace = () => {
   const filteredBusinesses = businesses.filter(business => {
     const matchesSearch = business.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          business.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesIndustry = !selectedIndustry || business.industry === selectedIndustry;
-    const matchesLocation = !selectedLocation || business.location === selectedLocation;
+    const matchesIndustry = selectedIndustry === "all" || !selectedIndustry || business.industry === selectedIndustry;
+    const matchesLocation = selectedLocation === "all" || !selectedLocation || business.location === selectedLocation;
     
     return matchesSearch && matchesIndustry && matchesLocation;
   });
@@ -142,7 +142,7 @@ const Marketplace = () => {
                   <SelectValue placeholder="Industry" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Industries</SelectItem>
+                  <SelectItem value="all">All Industries</SelectItem>
                   {industries.map(industry => (
                     <SelectItem key={industry} value={industry}>{industry}</SelectItem>
                   ))}
@@ -154,7 +154,7 @@ const Marketplace = () => {
                   <SelectValue placeholder="Location" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Locations</SelectItem>
+                  <SelectItem value="all">All Locations</SelectItem>
                   {locations.map(location => (
                     <SelectItem key={location} value={location}>{location}</SelectItem>
                   ))}
