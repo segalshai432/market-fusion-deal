@@ -12,22 +12,25 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <Building2 className="h-8 w-8 text-accent" />
-            <span className="text-xl font-bold text-foreground">BusinessConnect</span>
+            <span className="text-xl font-bold text-foreground">BusinessConnect SA</span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#marketplace" className="text-muted-foreground hover:text-foreground transition-colors">
-              Marketplace
+            <a href="#buy" className="text-muted-foreground hover:text-foreground transition-colors">
+              Buy a Business
             </a>
-            <a href="#sellers" className="text-muted-foreground hover:text-foreground transition-colors">
-              For Sellers
-            </a>
-            <a href="#buyers" className="text-muted-foreground hover:text-foreground transition-colors">
-              For Buyers
+            <a href="#sell" className="text-muted-foreground hover:text-foreground transition-colors">
+              Sell a Business
             </a>
             <a href="#investors" className="text-muted-foreground hover:text-foreground transition-colors">
-              For Investors
+              Find Investors
+            </a>
+            <a href="#capital" className="text-muted-foreground hover:text-foreground transition-colors">
+              Raise Capital
+            </a>
+            <a href="#resources" className="text-muted-foreground hover:text-foreground transition-colors">
+              SA Business Resources
             </a>
           </nav>
 
@@ -54,17 +57,20 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t">
             <nav className="flex flex-col space-y-4">
-              <a href="#marketplace" className="text-muted-foreground hover:text-foreground transition-colors">
-                Marketplace
+              <a href="#buy" className="text-muted-foreground hover:text-foreground transition-colors">
+                Buy a Business
               </a>
-              <a href="#sellers" className="text-muted-foreground hover:text-foreground transition-colors">
-                For Sellers
-              </a>
-              <a href="#buyers" className="text-muted-foreground hover:text-foreground transition-colors">
-                For Buyers
+              <a href="#sell" className="text-muted-foreground hover:text-foreground transition-colors">
+                Sell a Business
               </a>
               <a href="#investors" className="text-muted-foreground hover:text-foreground transition-colors">
-                For Investors
+                Find Investors
+              </a>
+              <a href="#capital" className="text-muted-foreground hover:text-foreground transition-colors">
+                Raise Capital
+              </a>
+              <a href="#resources" className="text-muted-foreground hover:text-foreground transition-colors">
+                SA Business Resources
               </a>
               <div className="flex flex-col space-y-2 pt-4">
                 <Button variant="ghost" className="justify-start" asChild>
