@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessConnect - Connect, Trade & Fund Business Success</title>
+    <meta name="description" content="The digital marketplace where SMEs meet their perfect match - buyers, sellers, investors, and growth partners.">
+    <meta name="author" content="BusinessConnect">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="BusinessConnect - Connect, Trade & Fund Business Success">
+    <meta property="og:description" content="The digital marketplace where SMEs meet their perfect match - buyers, sellers, investors, and growth partners.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/src/assets/hero-business.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BusinessConnect - Connect, Trade & Fund Business Success">
+    <meta name="twitter:description" content="The digital marketplace where SMEs meet their perfect match">
+    <meta name="twitter:image" content="/src/assets/hero-business.jpg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'hsl(221 83% 53%)',
+                        'primary-foreground': 'hsl(210 40% 98%)',
+                        secondary: 'hsl(210 40% 96%)',
+                        'secondary-foreground': 'hsl(222.2 84% 4.9%)',
+                        accent: 'hsl(142 76% 36%)',
+                        'accent-foreground': 'hsl(355 7% 97%)',
+                        background: 'hsl(0 0% 100%)',
+                        foreground: 'hsl(222.2 84% 4.9%)',
+                        muted: 'hsl(210 40% 96%)',
+                        'muted-foreground': 'hsl(215.4 16.3% 46.9%)',
+                        border: 'hsl(214.3 31.8% 91.4%)',
+                        card: 'hsl(0 0% 100%)',
+                        'card-foreground': 'hsl(222.2 84% 4.9%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .shadow-elegant {
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
+        }
+        .backdrop-blur {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div class="container mx-auto flex h-16 items-center justify-between px-4">
+            <div class="flex items-center space-x-2">
+                <div class="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+                    <i data-lucide="building-2" class="h-5 w-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold text-primary">BusinessConnect</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Buy Business</a>
+                <a href="#" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Sell Business</a>
+                <a href="#" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Find Investors</a>
+                <a href="#" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Raise Capital</a>
+                <a href="#" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Resources</a>
+            </nav>
+            
+            <!-- CTA Buttons -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button class="px-4 py-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                    Sign In
+                </button>
+                <button class="px-4 py-2 text-sm font-medium bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                    Get Started
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden border-t bg-white">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                <a href="#" class="block text-sm font-medium text-gray-600">Buy Business</a>
+                <a href="#" class="block text-sm font-medium text-gray-600">Sell Business</a>
+                <a href="#" class="block text-sm font-medium text-gray-600">Find Investors</a>
+                <a href="#" class="block text-sm font-medium text-gray-600">Raise Capital</a>
+                <a href="#" class="block text-sm font-medium text-gray-600">Resources</a>
+                <div class="pt-4 border-t space-y-2">
+                    <button class="w-full px-4 py-2 text-sm font-medium text-primary border border-primary rounded-lg">
+                        Sign In
+                    </button>
+                    <button class="w-full px-4 py-2 text-sm font-medium bg-primary text-white rounded-lg">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0">
+            <img 
+                src="/src/assets/hero-business.jpg" 
+                alt="Business professionals connecting" 
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/90 via-blue-600/70 to-transparent"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="text-white space-y-8">
+                    <h1 class="text-4xl lg:text-6xl font-bold leading-tight">
+                        Connect, Trade & Fund
+                        <span class="text-green-400 block">Business Success</span>
+                    </h1>
+                    
+                    <p class="text-xl lg:text-2xl text-white/90 leading-relaxed">
+                        The digital marketplace where SMEs meet their perfect match - whether it's a buyer, seller, investor, or growth partner.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="px-8 py-4 text-lg font-medium bg-white/10 text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
+                            Explore Marketplace
+                            <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                        </button>
+                        <button class="px-8 py-4 text-lg font-medium border border-white text-white hover:bg-white hover:text-blue-600 rounded-lg transition-all duration-300">
+                            List Your Business
+                        </button>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 pt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-400">500+</div>
+                            <div class="text-white/80">Businesses Listed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-400">$50M+</div>
+                            <div class="text-white/80">Transactions</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-400">95%</div>
+                            <div class="text-white/80">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - Feature Cards -->
+                <div class="space-y-6">
+                    <div class="p-6 bg-white/95 backdrop-blur border-0 shadow-elegant rounded-lg">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2 bg-green-100 rounded-lg">
+                                <i data-lucide="trending-up" class="h-6 w-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-gray-900 mb-2">Smart Valuation</h3>
+                                <p class="text-gray-600">AI-powered business readiness scoring and valuation assistance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white/95 backdrop-blur border-0 shadow-elegant rounded-lg">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2 bg-green-100 rounded-lg">
+                                <i data-lucide="users" class="h-6 w-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-gray-900 mb-2">Verified Network</h3>
+                                <p class="text-gray-600">Connect with pre-qualified buyers, sellers, and investors.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white/95 backdrop-blur border-0 shadow-elegant rounded-lg">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2 bg-green-100 rounded-lg">
+                                <i data-lucide="shield" class="h-6 w-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-gray-900 mb-2">Secure Transactions</h3>
+                                <p class="text-gray-600">End-to-end encrypted negotiations and secure payment processing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white/95 backdrop-blur border-0 shadow-elegant rounded-lg">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2 bg-green-100 rounded-lg">
+                                <i data-lucide="zap" class="h-6 w-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-gray-900 mb-2">Fast Process</h3>
+                                <p class="text-gray-600">Streamlined workflows reduce transaction time by 60%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
