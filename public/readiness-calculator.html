@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Readiness Calculator - BusinessConnect SA</title>
+    <meta name="description" content="Assess how ready your South African business is for sale and get personalized recommendations from verified professionals.">
+    <meta name="author" content="BusinessConnect SA">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Business Readiness Calculator - BusinessConnect SA">
+    <meta property="og:description" content="Free assessment tool to determine if your SA business is ready for sale">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'hsl(221 83% 53%)',
+                        'primary-foreground': 'hsl(210 40% 98%)',
+                        secondary: 'hsl(210 40% 96%)',
+                        'secondary-foreground': 'hsl(222.2 84% 4.9%)',
+                        accent: 'hsl(142 76% 36%)',
+                        'accent-foreground': 'hsl(355 7% 97%)',
+                        background: 'hsl(0 0% 100%)',
+                        foreground: 'hsl(222.2 84% 4.9%)',
+                        muted: 'hsl(210 40% 96%)',
+                        'muted-foreground': 'hsl(215.4 16.3% 46.9%)',
+                        border: 'hsl(214.3 31.8% 91.4%)',
+                        card: 'hsl(0 0% 100%)',
+                        'card-foreground': 'hsl(222.2 84% 4.9%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .shadow-elegant {
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
+        }
+        .hidden {
+            display: none;
+        }
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+        .radio-option {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .radio-option:hover {
+            background-color: hsl(210 40% 96%);
+        }
+        .radio-option.selected {
+            background-color: hsl(221 83% 53% / 0.1);
+            border-color: hsl(221 83% 53%);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="container mx-auto flex h-16 items-center justify-between px-4">
+            <div class="flex items-center space-x-2">
+                <div class="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+                    <i data-lucide="building-2" class="h-5 w-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold text-primary">BusinessConnect SA</span>
+            </div>
+            <a href="/" class="px-4 py-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                ← Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto p-6 space-y-8 py-12">
+        <div class="bg-white rounded-xl shadow-elegant border">
+            <!-- Header -->
+            <div class="text-center p-8 border-b">
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">
+                    Business Readiness Calculator
+                </h1>
+                <p class="text-lg text-gray-600">
+                    Assess how ready your South African business is for sale and get personalized recommendations
+                </p>
+            </div>
+
+            <!-- Calculator Form -->
+            <div id="calculator-form" class="p-8 space-y-8">
+                <!-- Question 1 -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-900">
+                        1. How organized are your financial records?
+                    </h3>
+                    <div class="space-y-2" data-question="financials">
+                        <div class="radio-option p-4 border rounded-lg" data-value="10">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="financials" value="10" class="text-primary">
+                                <span>Comprehensive records, audited statements, 3+ years of data</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="7">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="financials" value="7" class="text-primary">
+                                <span>Good records, some documentation, 2 years of data</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="4">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="financials" value="4" class="text-primary">
+                                <span>Basic records, limited documentation</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="1">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="financials" value="1" class="text-primary">
+                                <span>Poor or missing financial records</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-900">
+                        2. Can your business operate without your daily involvement?
+                    </h3>
+                    <div class="space-y-2" data-question="independence">
+                        <div class="radio-option p-4 border rounded-lg" data-value="10">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="independence" value="10" class="text-primary">
+                                <span>Completely - strong management team runs everything</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="7">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="independence" value="7" class="text-primary">
+                                <span>Mostly - can be away for weeks with minimal issues</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="4">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="independence" value="4" class="text-primary">
+                                <span>Partially - need to check in daily but can delegate</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="1">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="independence" value="1" class="text-primary">
+                                <span>Not at all - business depends entirely on me</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-900">
+                        3. What is your business profitability trend?
+                    </h3>
+                    <div class="space-y-2" data-question="profitability">
+                        <div class="radio-option p-4 border rounded-lg" data-value="10">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="profitability" value="10" class="text-primary">
+                                <span>Consistently growing profits for 3+ years</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="7">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="profitability" value="7" class="text-primary">
+                                <span>Stable profits with occasional growth</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="4">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="profitability" value="4" class="text-primary">
+                                <span>Break-even or minimal profits</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="1">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="profitability" value="1" class="text-primary">
+                                <span>Declining or inconsistent profits</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-900">
+                        4. How is your market position?
+                    </h3>
+                    <div class="space-y-2" data-question="market">
+                        <div class="radio-option p-4 border rounded-lg" data-value="10">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="market" value="10" class="text-primary">
+                                <span>Market leader with strong competitive advantages</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="7">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="market" value="7" class="text-primary">
+                                <span>Strong position with loyal customer base</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="4">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="market" value="4" class="text-primary">
+                                <span>Decent position but facing competition</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="1">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="market" value="1" class="text-primary">
+                                <span>Struggling against competitors</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-900">
+                        5. Are your business processes documented?
+                    </h3>
+                    <div class="space-y-2" data-question="documentation">
+                        <div class="radio-option p-4 border rounded-lg" data-value="10">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="documentation" value="10" class="text-primary">
+                                <span>Comprehensive manuals, SOPs, and training materials</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="7">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="documentation" value="7" class="text-primary">
+                                <span>Key processes documented, some training materials</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="4">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="documentation" value="4" class="text-primary">
+                                <span>Basic documentation, mostly informal processes</span>
+                            </label>
+                        </div>
+                        <div class="radio-option p-4 border rounded-lg" data-value="1">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="documentation" value="1" class="text-primary">
+                                <span>Little to no documentation</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button 
+                    id="calculate-btn" 
+                    class="w-full px-8 py-4 text-lg font-medium bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled
+                >
+                    Calculate Readiness Score
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results-section" class="hidden p-8 space-y-8">
+                <div class="text-center space-y-4">
+                    <div class="space-y-2">
+                        <div id="score-display" class="text-6xl font-bold text-accent">
+                            0%
+                        </div>
+                        <div class="text-xl text-gray-600">Readiness Score</div>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div id="progress-bar" class="h-4 bg-accent rounded-full progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div id="recommendation-card" class="bg-gray-50 rounded-xl p-6">
+                    <h3 id="recommendation-title" class="text-2xl font-bold mb-4"></h3>
+                    <p id="recommendation-message" class="text-lg text-gray-700"></p>
+                </div>
+
+                <div id="professionals-section" class="hidden space-y-6">
+                    <h3 class="text-2xl font-bold text-gray-900 text-center">
+                        Recommended South African Professionals
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Professional cards will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button 
+                        id="retake-btn"
+                        class="px-6 py-3 text-lg font-medium border border-primary text-primary hover:bg-primary hover:text-white rounded-lg transition-colors"
+                    >
+                        Take Assessment Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <div class="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+                    <i data-lucide="building-2" class="h-5 w-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold">BusinessConnect SA</span>
+            </div>
+            <p class="text-gray-400">Connecting South African businesses for growth and success.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Professional data
+        const professionals = [
+            {
+                name: 'SA Business Accounting Solutions',
+                specialty: 'Financial Record Organization',
+                phone: '+27 11 234 5678',
+                email: 'info@sabusinessaccounting.co.za',
+                description: 'Specializes in organizing financial records and preparing businesses for sale'
+            },
+            {
+                name: 'Cape Town Business Consultants',
+                specialty: 'Operational Independence',
+                phone: '+27 21 456 7890',
+                email: 'consultants@ctbusiness.co.za',
+                description: 'Helps businesses build management systems and reduce owner dependency'
+            },
+            {
+                name: 'Johannesburg Growth Partners',
+                specialty: 'Profitability Optimization',
+                phone: '+27 11 789 0123',
+                email: 'growth@jhbpartners.co.za',
+                description: 'Strategic consultants focused on improving business profitability and market position'
+            },
+            {
+                name: 'Durban Process Excellence',
+                specialty: 'Business Documentation',
+                phone: '+27 31 345 6789',
+                email: 'excellence@durbanprocess.co.za',
+                description: 'Creates comprehensive business process documentation and training materials'
+            },
+            {
+                name: 'SA Business Valuations',
+                specialty: 'Market Positioning & Valuation',
+                phone: '+27 11 567 8901',
+                email: 'valuations@sabusiness.co.za',
+                description: 'Expert business valuators and market positioning specialists'
+            }
+        ];
+
+        // Initialize calculator
+        let answers = {};
+        const questions = ['financials', 'independence', 'profitability', 'market', 'documentation'];
+
+        // Add event listeners to radio options
+        document.querySelectorAll('.radio-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const input = this.querySelector('input[type="radio"]');
+                input.checked = true;
+                
+                // Update visual state
+                const questionContainer = this.closest('[data-question]');
+                questionContainer.querySelectorAll('.radio-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+                
+                // Store answer
+                const questionName = input.name;
+                answers[questionName] = parseInt(input.value);
+                
+                // Check if all questions answered
+                checkCompletion();
+            });
+        });
+
+        function checkCompletion() {
+            const isComplete = questions.every(q => answers.hasOwnProperty(q));
+            document.getElementById('calculate-btn').disabled = !isComplete;
+        }
+
+        function calculateScore() {
+            const totalScore = Object.values(answers).reduce((sum, score) => sum + score, 0);
+            const maxScore = questions.length * 10;
+            return Math.round((totalScore / maxScore) * 100);
+        }
+
+        function getScoreColor(score) {
+            if (score >= 80) return 'text-accent';
+            if (score >= 60) return 'text-yellow-600';
+            return 'text-red-600';
+        }
+
+        function getRecommendations(score) {
+            if (score >= 80) {
+                return {
+                    title: 'Excellent! Your business is ready for sale',
+                    message: 'Your business shows strong readiness indicators. You\'re well-positioned for a successful sale.',
+                    showProfessionals: false
+                };
+            } else if (score >= 60) {
+                return {
+                    title: 'Good foundation, but room for improvement',
+                    message: 'Your business has potential but could benefit from some improvements before listing.',
+                    showProfessionals: true
+                };
+            } else {
+                return {
+                    title: 'Significant preparation needed',
+                    message: 'Your business needs substantial improvements before it\'s ready for sale. Consider working with professionals.',
+                    showProfessionals: true
+                };
+            }
+        }
+
+        function showResults() {
+            const score = calculateScore();
+            const recommendations = getRecommendations(score);
+            
+            // Hide form, show results
+            document.getElementById('calculator-form').classList.add('hidden');
+            document.getElementById('results-section').classList.remove('hidden');
+            
+            // Update score display
+            const scoreDisplay = document.getElementById('score-display');
+            scoreDisplay.textContent = score + '%';
+            scoreDisplay.className = 'text-6xl font-bold ' + getScoreColor(score);
+            
+            // Update progress bar
+            document.getElementById('progress-bar').style.width = score + '%';
+            
+            // Update recommendation card
+            const titleElement = document.getElementById('recommendation-title');
+            titleElement.textContent = recommendations.title;
+            titleElement.className = 'text-2xl font-bold mb-4 ' + getScoreColor(score);
+            document.getElementById('recommendation-message').textContent = recommendations.message;
+            
+            // Show professionals if needed
+            if (recommendations.showProfessionals) {
+                showProfessionals();
+            }
+        }
+
+        function showProfessionals() {
+            const section = document.getElementById('professionals-section');
+            section.classList.remove('hidden');
+            
+            const container = section.querySelector('.grid');
+            container.innerHTML = '';
+            
+            professionals.forEach(professional => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-xl p-6 shadow-elegant hover:shadow-lg transition-shadow';
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">${professional.name}</h4>
+                            <p class="text-accent font-medium">${professional.specialty}</p>
+                        </div>
+                        <p class="text-gray-600">${professional.description}</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-2 text-sm">
+                                <i data-lucide="phone" class="h-4 w-4 text-primary"></i>
+                                <a href="tel:${professional.phone}" class="text-primary hover:underline">
+                                    ${professional.phone}
+                                </a>
+                            </div>
+                            <div class="flex items-center space-x-2 text-sm">
+                                <i data-lucide="mail" class="h-4 w-4 text-primary"></i>
+                                <a href="mailto:${professional.email}" class="text-primary hover:underline">
+                                    ${professional.email}
+                                </a>
+                            </div>
+                        </div>
+                        <button class="w-full px-4 py-2 text-sm font-medium border border-primary text-primary hover:bg-primary hover:text-white rounded-lg transition-colors">
+                            Contact Now
+                            <i data-lucide="external-link" class="ml-2 h-4 w-4 inline"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            
+            // Reinitialize icons for new content
+            lucide.createIcons();
+        }
+
+        function resetCalculator() {
+            answers = {};
+            document.getElementById('results-section').classList.add('hidden');
+            document.getElementById('calculator-form').classList.remove('hidden');
+            
+            // Reset form
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+            document.querySelectorAll('.radio-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            checkCompletion();
+        }
+
+        // Event listeners
+        document.getElementById('calculate-btn').addEventListener('click', showResults);
+        document.getElementById('retake-btn').addEventListener('click', resetCalculator);
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
